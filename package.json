@@ -1,0 +1,29 @@
+{
+  "name": "landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "bundle": "sass ./source/stylesheets/style.sass ./public/stylesheets/style.css && rollup -c",
+    "lint": "npm run lint:browser && npm run lint:node",
+    "lint:browser": "eslint --env browser ./source/javascript",
+    "lint:node": "elsint --env node ./routes"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cookie-parser": "~1.4.4",
+    "dark-sky": "^1.1.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1",
+    "pg": "^7.12.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "rollup": "^1.23.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "sass": "^1.32.13"
+  }
+}

@@ -1,0 +1,97 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('landing-page:server');
+var https = require('https');
+var http = require('http');
+var fs = require('fs');
+
+var http_port = "3080";
+var https_port = "3443";
+
+var pathToKey = "privkey.pem";
+var pathToCert = "fullchain.pem";
+
+var pathToKeyDummy = "privkey.pem";
+var pathToCertDummy = "fullchain.pem";
+
+const optionsFactory = () => {
+  const options = {};
+  if(fs.existsSync(pathToCert)){
+    options.cert = fs.readFileSync(pathToCert);
+    if(fs.existsSync(pathToKey)){
+      options.key = fs.readFileSync(pathToKey);
+      return options;
+    }
+  }
+  else if(fs.existsSync(pathToCertDummy)){
+    options.cert = fs.readFileSync(pathToCertDummy);
+    if(fs.existsSync(pathToKeyDummy)){
+      options.key = fs.readFileSync(pathToKeyDummy);
+      return options;
+    }
+  }
+  return false;
+}
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error('App requires elevated privileges');
+      process.exit(1);
+    case 'EADDRINUSE':
+      console.error('Port is already in use');
+      process.exit(1);
+    default:
+      throw error;
+  }
+}
+
+function onListening(server) {
+  var addr = server.address();
+  console.log(addr)
+  console.log(`Listening on ${addr.address}:${addr.port}`);
+}
+
+function attemptHTTPS(options){
+  if(options){
+    var https_server = https.createServer(options, app);
+    https_server.listen(normalizePort(https_port));
+    https_server.on('error', onError);
+    https_server.on('listening', ()=>{onListening(https_server)});
+  }
+  else{
+    var http_server = http.createServer(app);
+    http_server.listen(normalizePort(http_port));
+    http_server.on('error', onError);
+    http_server.on('listening', ()=>{onListening(http_server)});
+  }
+}
+
+const options = optionsFactory();
+attemptHTTPS(options);

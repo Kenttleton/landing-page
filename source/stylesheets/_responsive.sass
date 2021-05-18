@@ -1,0 +1,8 @@
+$breakpoints: ("ms-small-max": 640px, "ms-medium-min": 641px, "ms-medium-max": 1007px, "ms-large-min": 1008px,) !default
+$margins: ("ms-small-margin": 12px, "ms-medium-margin": 24px, "ms-large-margin": 24px,) !default
+
+@function breakpoint($breakpoint) 
+    @return map-get($map: $breakpoints, $key: $breakpoint)
+
+@function margin($margin)
+    @return map-get($map: $margins, $key: $margin)

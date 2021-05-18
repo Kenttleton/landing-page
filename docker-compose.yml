@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+  landingpage:
+    container_name: landingpage    
+    hostname: landingpage
+    build: .
+    environment:
+      - NODE_ENV=production
+      - LONGITUDE=-122.666
+      - LATITUDE=45.5083
+      - IPGEOLOCATIONAPIKEY=016c2d0bd58441aeb5c90fef58c01b87
+      - DARKSKYAPIKEY=bcd568c5605e7acc5dc89ed351d89add
+    volumes:
+      - ".:/app"
+      - "certs:/etc/letsencrypt"
+      - "/.npm:/root/.npm"
+    networks:
+      - revproxy
+    command: npm start
+
+networks:
+  revproxy:
+    external: true
+
+volumes:
+  certs:
+    external: true

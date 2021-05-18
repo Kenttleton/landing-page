@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap')
+@import responsive
+
+p
+  margin: 0
+  margin-bottom: 5px
+.sky
+  display: flex
+  top: 0
+  left: 0
+  background-color: #348
+  height: 100%
+  width: 100%
+
+canvas
+  position: absolute
+
+.moon-layer 
+  display: flex
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+
+  @for $i from 0 through 2
+    &__#{$i}
+      @extend .moon-layer
+
+.sun-layer 
+  display: flex
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+
+  @for $i from 0 through 2
+    &__#{$i}
+      @extend .sun-layer
+
+a
+  color: #00B7FF
+
+@media screen and (max-width: breakpoint('ms-small-max'))
+  body
+    margin: 0
+    padding: 0
+    overflow: hidden
+    font: 14px 'Fredoka One', cursive, "Lucida Grande", Helvetica, Arial, sans-serif
+    
+  .text 
+    position: absolute
+    display: flex
+    flex-direction: column
+    top: 0
+    left: 0
+    width: 100%
+    margin-top: 15vh
+    color: white 
+    text-align: center
+
+  footer 
+    position: absolute
+    display: flex
+    flex-direction: column-reverse
+    justify-content: center
+    width: 100vw
+    bottom: 0
+    font: 10px Arial, sans-serif
+    color: black
+
+  .location-info
+    display: flex
+    flex-direction: column
+    height: max-content
+    background-color: rgba(255,255,255, 0.3)
+    padding: margin('ms-small-margin')
+    margin: margin('ms-small-margin')
+    font: 10px Arial, sans-serif
+  
+  .powered-by
+    display: flex
+    align-content: center
+    justify-content: center
+    background-color: rgba(0, 0, 0, 0.3)
+    padding: 10px
+
+    & a
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-content: center
+      text-align: center
+      width: 100%
+
+  .designed-by
+    display: flex
+    width: 100%
+    justify-content: center
+    height: max-content
+    background-color: rgba(0,0,0, 0.3)
+    padding: margin('ms-small-margin')
+
+  .mountain-layer
+    @for $i from 0 through 2
+      &__#{$i}
+        position: absolute
+        display: flex
+        bottom: 0
+        right: 0
+        height: 50%
+        width: 40%
+
+  .cloud-layer
+    position: absolute
+    display: flex
+    bottom: 0
+    width: 100%
+
+    @for $i from 0 through 8
+      @if $i == 0
+        &__#{$i}
+          display: none
+      @else
+        &__#{$i}
+          position: absolute
+          display: flex
+          bottom: 0
+          width: 100%
+          height: calc(20vh + (#{$i} * 100px))
+
+  .tree-layer 
+    @for $i from 0 through 2
+        &__#{$i}
+          display: none
+
+
+@media screen and (min-width: breakpoint('ms-medium-min'))
+  body
+    margin: 0
+    padding: 0
+    overflow: hidden
+    font: 14px 'Fredoka One', cursive, "Lucida Grande", Helvetica, Arial, sans-serif
+    
+  .text 
+    position: absolute
+    display: flex
+    flex-direction: column
+    top: 0
+    left: 0
+    width: 100%
+    margin-top: 15vh
+    color: white 
+    text-align: center
+
+  footer 
+    position: absolute
+    display: flex
+    flex-direction: row
+    justify-content: right
+    width: 100vw
+    bottom: 0
+    font: 12px Arial, sans-serif
+    color: black
+
+  .location-info
+    display: flex
+    flex-direction: column
+    height: max-content
+    background-color: rgba(255,255,255, 0.3)
+    padding: margin('ms-small-margin')
+    margin: margin('ms-medium-margin')
+    font: 12px Arial, sans-serif
+
+  .powered-by
+    display: flex
+    align-content: center
+    justify-content: center
+    background-color: rgba(0, 0, 0, 0.3)
+    padding: 10px
+
+    & a
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-content: center
+      text-align: center
+      width: max-content
+
+  .designed-by
+    display: flex
+    width: 100%
+    height: max-content
+    background-color: rgba(0,0,0, 0.3)
+    padding: margin('ms-medium-margin')
+
+  .mountain-layer
+    @for $i from 0 through 2
+      &__#{$i}
+        position: absolute
+        display: flex
+        bottom: 0
+        right: 0
+        height: 100%
+        width: 30vw
+  
+  .cloud-layer
+    position: absolute
+    display: flex
+    bottom: 0
+    width: 100%
+
+    @for $i from 0 through 8
+      &__#{$i}
+        position: absolute
+        display: flex
+        bottom: 0
+        width: 100%
+        height: calc(30vh + (#{$i} * 100px))
+
+  .tree-layer 
+    @for $i from 0 through 2
+      &__#{$i}
+        position: absolute
+        display: flex
+        bottom: 0
+        width: 100%
+        height: calc((30vh - (#{$i} * 10vh))/2)
+
+@media screen and (min-width: breakpoint('ms-large-min'))
+  body
+    margin: 0
+    padding: 0
+    overflow: hidden
+    font: 16px 'Fredoka One', cursive, "Lucida Grande", Helvetica, Arial, sans-serif
+    
+  .text 
+    position: absolute
+    display: flex
+    flex-direction: column
+    top: 0
+    left: 0
+    width: 100%
+    margin-top: 15vh
+    color: white 
+    text-align: center
+
+  footer 
+    position: absolute
+    display: flex
+    flex-direction: row
+    justify-content: right
+    width: 100vw
+    bottom: 0
+    font: 12px Arial, sans-serif
+    color: black
+
+  .location-info
+    display: flex
+    flex-direction: column
+    height: max-content
+    background-color: rgba(255,255,255, 0.3)
+    padding: margin('ms-small-margin')
+    margin: margin('ms-large-margin')
+    font: 12px Arial, sans-serif
+
+  .powered-by
+    display: flex
+    align-content: center
+    justify-content: center
+    background-color: rgba(0, 0, 0, 0.3)
+    padding: 10px
+  
+    & a
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-content: center
+      text-align: center
+      width: max-content
+
+  .designed-by
+    display: flex
+    width: 100%
+    height: max-content
+    justify-content: flex-end
+    background-color: rgba(0,0,0, 0.3)
+    padding: margin('ms-medium-margin')
+
+  .mountain-layer
+    @for $i from 0 through 2
+      &__#{$i}
+        position: absolute
+        display: flex
+        bottom: 0
+        right: 0
+        height: 100%
+        width: 30vw
+  
+  .cloud-layer
+    @for $i from 0 through 8
+      &__#{$i}
+        position: absolute
+        display: flex
+        bottom: 0
+        width: 100%
+        height: calc(30vh + (#{$i} * 100px))
+
+  .tree-layer 
+    @for $i from 0 through 2
+      &__#{$i}
+        position: absolute
+        display: flex
+        bottom: 0
+        width: 100%
+        height: calc((30vh - (#{$i} * 10vh))/2)

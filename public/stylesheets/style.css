@@ -1,0 +1,565 @@
+@import url("https://fonts.googleapis.com/css?family=Fredoka+One&display=swap");
+p {
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.sky {
+  display: flex;
+  top: 0;
+  left: 0;
+  background-color: #348;
+  height: 100%;
+  width: 100%;
+}
+
+canvas {
+  position: absolute;
+}
+
+.moon-layer, .moon-layer__2, .moon-layer__1, .moon-layer__0 {
+  display: flex;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.sun-layer, .sun-layer__2, .sun-layer__1, .sun-layer__0 {
+  display: flex;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+a {
+  color: #00B7FF;
+}
+
+@media screen and (max-width: 640px) {
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font: 14px "Fredoka One", cursive, "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+
+  .text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 15vh;
+    color: white;
+    text-align: center;
+  }
+
+  footer {
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    width: 100vw;
+    bottom: 0;
+    font: 10px Arial, sans-serif;
+    color: black;
+  }
+
+  .location-info {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 12px;
+    margin: 12px;
+    font: 10px Arial, sans-serif;
+  }
+
+  .powered-by {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+  }
+  .powered-by a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .designed-by {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: max-content;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 12px;
+  }
+
+  .mountain-layer__0 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    height: 50%;
+    width: 40%;
+  }
+  .mountain-layer__1 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    height: 50%;
+    width: 40%;
+  }
+  .mountain-layer__2 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    height: 50%;
+    width: 40%;
+  }
+
+  .cloud-layer {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+  }
+  .cloud-layer__0 {
+    display: none;
+  }
+  .cloud-layer__1 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(20vh + (1 * 100px));
+  }
+  .cloud-layer__2 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(20vh + (2 * 100px));
+  }
+  .cloud-layer__3 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(20vh + (3 * 100px));
+  }
+  .cloud-layer__4 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(20vh + (4 * 100px));
+  }
+  .cloud-layer__5 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(20vh + (5 * 100px));
+  }
+  .cloud-layer__6 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(20vh + (6 * 100px));
+  }
+  .cloud-layer__7 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(20vh + (7 * 100px));
+  }
+  .cloud-layer__8 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(20vh + (8 * 100px));
+  }
+
+  .tree-layer__0 {
+    display: none;
+  }
+  .tree-layer__1 {
+    display: none;
+  }
+  .tree-layer__2 {
+    display: none;
+  }
+}
+@media screen and (min-width: 641px) {
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font: 14px "Fredoka One", cursive, "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+
+  .text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 15vh;
+    color: white;
+    text-align: center;
+  }
+
+  footer {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    width: 100vw;
+    bottom: 0;
+    font: 12px Arial, sans-serif;
+    color: black;
+  }
+
+  .location-info {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 12px;
+    margin: 24px;
+    font: 12px Arial, sans-serif;
+  }
+
+  .powered-by {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+  }
+  .powered-by a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    width: max-content;
+  }
+
+  .designed-by {
+    display: flex;
+    width: 100%;
+    height: max-content;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 24px;
+  }
+
+  .mountain-layer__0 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 30vw;
+  }
+  .mountain-layer__1 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 30vw;
+  }
+  .mountain-layer__2 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 30vw;
+  }
+
+  .cloud-layer {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+  }
+  .cloud-layer__0 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (0 * 100px));
+  }
+  .cloud-layer__1 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (1 * 100px));
+  }
+  .cloud-layer__2 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (2 * 100px));
+  }
+  .cloud-layer__3 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (3 * 100px));
+  }
+  .cloud-layer__4 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (4 * 100px));
+  }
+  .cloud-layer__5 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (5 * 100px));
+  }
+  .cloud-layer__6 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (6 * 100px));
+  }
+  .cloud-layer__7 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (7 * 100px));
+  }
+  .cloud-layer__8 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (8 * 100px));
+  }
+
+  .tree-layer__0 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc((30vh - (0 * 10vh))/2);
+  }
+  .tree-layer__1 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc((30vh - (1 * 10vh))/2);
+  }
+  .tree-layer__2 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc((30vh - (2 * 10vh))/2);
+  }
+}
+@media screen and (min-width: 1008px) {
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font: 16px "Fredoka One", cursive, "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+
+  .text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 15vh;
+    color: white;
+    text-align: center;
+  }
+
+  footer {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    width: 100vw;
+    bottom: 0;
+    font: 12px Arial, sans-serif;
+    color: black;
+  }
+
+  .location-info {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 12px;
+    margin: 24px;
+    font: 12px Arial, sans-serif;
+  }
+
+  .powered-by {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+  }
+  .powered-by a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    width: max-content;
+  }
+
+  .designed-by {
+    display: flex;
+    width: 100%;
+    height: max-content;
+    justify-content: flex-end;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 24px;
+  }
+
+  .mountain-layer__0 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 30vw;
+  }
+  .mountain-layer__1 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 30vw;
+  }
+  .mountain-layer__2 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 30vw;
+  }
+
+  .cloud-layer__0 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (0 * 100px));
+  }
+  .cloud-layer__1 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (1 * 100px));
+  }
+  .cloud-layer__2 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (2 * 100px));
+  }
+  .cloud-layer__3 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (3 * 100px));
+  }
+  .cloud-layer__4 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (4 * 100px));
+  }
+  .cloud-layer__5 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (5 * 100px));
+  }
+  .cloud-layer__6 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (6 * 100px));
+  }
+  .cloud-layer__7 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (7 * 100px));
+  }
+  .cloud-layer__8 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc(30vh + (8 * 100px));
+  }
+
+  .tree-layer__0 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc((30vh - (0 * 10vh))/2);
+  }
+  .tree-layer__1 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc((30vh - (1 * 10vh))/2);
+  }
+  .tree-layer__2 {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    height: calc((30vh - (2 * 10vh))/2);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
